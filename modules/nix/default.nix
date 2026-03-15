@@ -21,6 +21,19 @@
       "flakes"
     ];
     auto-optimise-store = true;
+
+    # Use all cores for evaluation
+    eval-cores = 0;
+
+    # Parallel builds
+    max-jobs = "auto";
+
+    # Keep eval cache
+    eval-cache = true;
+
+    # Substitutes
+    substitute = true;
+    builders-use-substitutes = true;
   };
 
   systemd.services.nix-daemon.serviceConfig = {
