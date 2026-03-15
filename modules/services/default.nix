@@ -21,7 +21,10 @@
     freeSwapThreshold = 15;
   };
 
-  services.fstrim.enable = true;
+  services.fstrim = {
+    enable = true;
+    interval = "hourly";
+  };
 
   services.printing.enable = true;
 
