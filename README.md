@@ -229,32 +229,38 @@ stylix.image = ./path/to/your/image.png;
 | Key | Action |
 |-----|--------|
 | `SUPER + RETURN` | Open terminal (Kitty) |
-| `SUPER + SHIFT + RETURN` | Open application launcher (Tofi) |
+| `SUPER + SPACE` | Open application launcher (Tofi) |
 | `SUPER + B` | Open browser (Firefox) |
-| `SUPER + Q` | Close window |
-| `SUPER + SHIFT + Q` | Kill window |
-| `SUPER + H/J/K/L` | Move focus |
-| `SUPER + SHIFT + H/J/K/L` | Move window |
+| `SUPER + W` | Close window |
 | `SUPER + 1-9` | Switch to workspace |
-| `SUPER + SHIFT + 1-9` | Move to workspace |
-| `SUPER + S` | Toggle screenshot |
-| `PRINT` | Take screenshot |
-| `SUPER + SHIFT + V` | Toggle clipboard |
+| `SUPER + SHIFT + 1-9` | Move window to workspace |
+| `PRINT` | Screenshot (grimblast copy area) |
 | `XF86AudioRaiseVolume` | Volume up |
 | `XF86AudioLowerVolume` | Volume down |
+| `XF86AudioMute` | Toggle mute |
+| `XF86AudioMicMute` | Toggle microphone mute |
 
 ### Neovim
 
-| Key | Action |
-|-----|--------|
-| `:Telescope find_files` | Find files |
-| `:Telescope live_grep` | Search in files |
-| `:Neotree toggle` | Toggle file explorer |
-| `gd` | Go to definition |
-| `K` | Hover documentation |
-| `gr` | Find references |
-| `:SessionSave` | Save session |
-| `:SessionLoad` | Load session |
+The Neovim configuration uses default plugin keybindings. Available commands:
+
+**Telescope (Fuzzy Finder):**
+- `:Telescope find_files` - Find files
+- `:Telescope live_grep` - Search in files
+- `:Telescope buffers` - List buffers
+- `:Telescope help_tags` - Search help
+
+**LSP (Language Server):**
+- `gd` - Go to definition
+- `gr` - Find references
+- `K` - Hover documentation
+- `gi` - Go to implementation
+- `go` - Go to type definition
+
+**Other:**
+- `:Neotree toggle` - Toggle file explorer
+- `:SessionSave` - Save session
+- `:SessionLoad` - Load session
 
 ## Module Reference
 
