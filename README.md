@@ -98,12 +98,6 @@ graph TD
 
 ## Quick Start
 
-### Requirements
-- NixOS with Flakes enabled
-- NVIDIA GPU (configured for RTX/RTX Super series)
-- 24GB+ RAM recommended (for AI/ML workloads)
-- UEFI firmware
-
 ### Installation
 
 1. **Clone the repository:**
@@ -127,29 +121,6 @@ graph TD
    ```bash
    sudo nixos-rebuild switch --flake .#nixos
    ```
-
-### Daily Usage
-
-**Apply configuration changes:**
-```bash
-sudo nixos-rebuild switch --flake .#nixos
-```
-
-**Test without applying:**
-```bash
-sudo nixos-rebuild test --flake .#nixos
-```
-
-**Update flake inputs:**
-```bash
-nix flake update
-```
-
-**Garbage collection:**
-```bash
-sudo nix-collect-garbage -d
-nix-store --optimize
-```
 
 ## Customization
 
