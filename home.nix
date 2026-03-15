@@ -30,17 +30,6 @@
     ./home/waybar.nix
   ];
 
-  # Enable Hyprland window manager
-  wayland.windowManager.hyprland = {
-    enable = true;
-    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-    portalPackage =
-      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
-  };
-
-  # Enable nixvim
-  programs.nixvim.enable = true;
-
   # Home Manager version
   home.stateVersion = "25.11";
 }
