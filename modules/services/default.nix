@@ -24,7 +24,6 @@
   services.fstrim = {
     enable = true;
     interval = "daily";
-    persistent = true;
   };
 
   services.printing.enable = true;
