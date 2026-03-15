@@ -105,11 +105,16 @@
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  services.xserver.enable = false;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  services.displayManager.sddm = {
+    enable = false;
+    theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
+    wayland.enable = true;
+  };
+  services.displayManager.gdm.enable = true;
+  services.desktopManager.plasma6.enable = false;
 
   # Enable Hyprland
   programs.hyprland = {
@@ -163,7 +168,6 @@
       "wheel"
     ];
     packages = with pkgs; [
-      kdePackages.kate
       #  thunderbird
     ];
   };
