@@ -309,40 +309,6 @@ stylix.image = ./path/to/your/image.png;
 - Right: system tray, audio, network, CPU, memory, battery
 - Catppuccin styling with CSS modules
 
-## Troubleshooting
-
-### NOSPC error during build
-Increase the size of your /tmp or add to your configuration:
-```nix
-boot.kernelParams = [ "tmpfs_size=10G" ];
-```
-
-### NVIDIA drivers not working
-Make sure you're using the proprietary driver in `modules/hardware/nvidia.nix`:
-```nix
-hardware.nvidia.enable = true;
-services.xserver.videoDrivers = [ "nvidia" ];
-```
-
-### Steam won't launch
-Ensure hardware acceleration is enabled:
-```nix
-hardware.graphics.enable = true;
-hardware.nvidia.enable = true;
-```
-
-### High memory usage
-Check if EarlyOOM is working:
-```bash
-systemctl status earlyoom
-```
-
-### Llama-cpp CUDA errors
-Verify CUDA support:
-```bash
-nix-shell -p cudaPackages.cudatoolkit --run "nvcc --version"
-```
-
 ## Module Dependencies
 
 ### System Modules
