@@ -15,6 +15,12 @@
     ./hardware-configuration.nix
   ];
 
+  stylix = {
+    enable = true;
+    image = ./van_allen.jpeg;
+    polarity = "dark";
+  };
+
   systemd.services.nvidia-tdp = {
     description = "Set NVIDIA TDP limit";
     wantedBy = [ "multi-user.target" ];
@@ -181,6 +187,11 @@
     ];
   };
 
+  fonts.packages = with pkgs; [
+    font-awesome
+    nerd-fonts.caskaydia-mono
+  ];
+
   # Install firefox.
   programs.firefox.enable = true;
 
@@ -196,6 +207,7 @@
     git
     opencode
     llama-cpp-cuda
+    ripgrep
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
