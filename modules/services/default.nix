@@ -21,6 +21,8 @@
     freeSwapThreshold = 15;
   };
 
+  services.fstrim.enable = true;
+
   services.printing.enable = true;
 
   programs.ssh.startAgent = true;
