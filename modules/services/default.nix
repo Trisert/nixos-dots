@@ -25,6 +25,11 @@
     enable = false;
   };
 
+  services.ananicy = {
+    enable = true;
+    package = pkgs.ananicy-cpp;
+  };
+
   services.printing.enable = true;
 
   programs.ssh.startAgent = true;

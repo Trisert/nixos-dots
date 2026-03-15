@@ -43,6 +43,9 @@
   # GTK theme
   environment.variables.GTK_THEME = "Adwaita:dark";
 
+  # Enable Wayland-native mode for Electron apps
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
+
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken.

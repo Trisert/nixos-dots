@@ -1,11 +1,18 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
 
-{
-  hardware.graphics.enable = true;
+let
+  pkgs-hypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in {
+  hardware.graphics = {
+    package     = pkgs-hypr.mesa;
+    enable32Bit = true;
+    package32   = pkgs-hypr.pkgsi686Linux.mesa;
+  };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = false;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
