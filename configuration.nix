@@ -15,6 +15,15 @@
     ./hardware-configuration.nix
   ];
 
+  systemd.services.nvidia-tdp = {
+    description = "Set NVIDIA TDP limit";
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = "/run/current-system/sw/bin/nvidia-smi -pl 125 -i 0";
+    };
+  };
+
   programs.ssh.startAgent = true;
 
   environment.variables.GTK_THEME = "Adwaita:dark";
