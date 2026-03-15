@@ -10,6 +10,11 @@
 
     colorschemes.catppuccin.enable = true;
 
+    opts = {
+      number = true;
+      relativenumber = true;
+    };
+
     plugins = {
       neo-tree.enable = true;
       telescope.enable = true;
