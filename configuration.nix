@@ -15,6 +15,8 @@
     ./hardware-configuration.nix
   ];
 
+  programs.ssh.startAgent = true;
+
   environment.variables.GTK_THEME = "Adwaita:dark";
 
   # configuration.nix
