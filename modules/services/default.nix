@@ -22,8 +22,7 @@
   };
 
   services.fstrim = {
-    enable = true;
-    interval = "daily";
+    enable = false;
   };
 
   services.printing.enable = true;
