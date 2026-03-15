@@ -4,6 +4,3 @@ result-*
 
 # Ignore automatically generated direnv output
 .direnv
-
-# Ignore hardware-specific configuration
-hardware-configuration.nix
