@@ -74,7 +74,6 @@
         spacing = 0;
         modules-left = [
           "hyprland/workspaces"
-          "mpris"
         ];
         modules-center = [ "clock" ];
         modules-right = [
@@ -205,7 +204,6 @@
     nixfmt
     swww
     gh
-    playerctl
   ];
 
   programs.kitty = {

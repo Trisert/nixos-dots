@@ -122,14 +122,17 @@
   # You can disable this if you're only using the Wayland session.
   services.xserver.enable = false;
 
-  # Enable the KDE Plasma Desktop Environment.
   services.displayManager.sddm = {
-    enable = false;
-    theme = "${pkgs.sddm-chili-theme}/share/sddm/themes/chili";
+    enable = true;
     wayland.enable = true;
+    package = pkgs.kdePackages.sddm;
+    theme = "sddm-astronaut-theme";
+    extraPackages = with pkgs; [
+      kdePackages.qtsvg
+      kdePackages.qtvirtualkeyboard
+      kdePackages.qtmultimedia
+    ];
   };
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.plasma6.enable = false;
 
   # Enable Hyprland
   programs.hyprland = {
@@ -208,6 +211,13 @@
     opencode
     llama-cpp-cuda
     ripgrep
+    (sddm-astronaut.override {
+      embeddedTheme = "astronaut";
+      themeConfig = {
+        Background = "${config.stylix.image}";
+        Font = config.stylix.fonts.sansSerif.name;
+      };
+    })
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
