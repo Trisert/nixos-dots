@@ -15,6 +15,7 @@
     opencode
     llama-cpp-cuda
     ripgrep
+    claude-code
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
       themeConfig = {
