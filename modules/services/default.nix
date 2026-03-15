@@ -23,7 +23,8 @@
 
   services.fstrim = {
     enable = true;
-    interval = "hourly";
+    interval = "daily";
+    persistent = true;
   };
 
   services.printing.enable = true;
