@@ -12,7 +12,6 @@
 
     opts = {
       number = true;
-      relativenumber = true;
     };
 
     plugins = {
