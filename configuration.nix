@@ -32,6 +32,12 @@
     enable = true;
     image = ./van_allen.jpeg;
     polarity = "dark";
+    fonts = {
+      monospace = {
+        name = "JetBrainsMono Nerd Font";
+        package = pkgs.nerd-fonts.jetbrains-mono;
+      };
+    };
   };
 
   # GTK theme

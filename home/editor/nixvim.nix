@@ -161,12 +161,7 @@
       };
 
       # Better indentation guides
-      indent-blankline = {
-        enable = true;
-        settings = {
-          indent.enable = true;
-        };
-      };
+      indent-blankline.enable = true;
 
       # Auto-pair enhancements
       nvim-autopairs.settings.check_ts = true;
