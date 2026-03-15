@@ -13,12 +13,6 @@ A modern, high-performance NixOS configuration with comprehensive development to
 - **Waybar** - Customizable status bar with Catppuccin styling
 - **Stylix** - System-wide theming with base16 color schemes
 
-### Performance Optimizations
-- **Parallel Evaluation** - Nix configured for maximum parallelism (eval-cores = 0)
-- **Aggressive Caching** - Multiple substituters including Cachix and Determinate
-- **Memory Management** - EarlyOOM and fstrim for optimal RAM and SSD usage
-- **NVIDIA Optimization** - TDP limiting service (125W) for better thermals
-
 ### Development Environment
 - **Neovim (Nixvim)** - Fully configured with:
   - LSP servers for Python, TypeScript, Rust, and Nix
@@ -348,23 +342,6 @@ Verify CUDA support:
 ```bash
 nix-shell -p cudaPackages.cudatoolkit --run "nvcc --version"
 ```
-
-## Performance
-
-### Build Times
-- Initial build: ~15-20 minutes
-- Incremental rebuild: ~2-5 minutes
-- Configuration-only changes: ~30 seconds
-
-### Memory Usage
-- Idle: ~2-3 GB
-- Development: ~4-6 GB
-- Gaming: ~6-10 GB
-- AI/ML: 16-24 GB (depending on model size)
-
-### Boot Time
-- To display manager: ~8 seconds
-- To desktop: ~12 seconds
 
 ## Module Dependencies
 
