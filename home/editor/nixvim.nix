@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 
 {
@@ -36,7 +35,7 @@
         settings = {
           highlight.enable = true;
           indent.enable = true;
-          indent.disable = ["python"];
+          indent.disable = [ "python" ];
         };
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           bash
@@ -93,7 +92,7 @@
 
       lsp-format = {
         enable = true;
-        lspServersToEnable = ["pyright" "ts_ls" "rust_analyzer" "nixd"];
+        lspServersToEnable = [ "pyright" "ts_ls" "rust_analyzer" "nixd" ];
       };
 
       # Inlay hints (inline type information)
@@ -156,7 +155,7 @@
         enable = true;
         settings = {
           dir = "~/.config/nvim/sessions";
-          options = ["buffers" "curdir" "tabpages" "winsize"];
+          options = [ "buffers" "curdir" "tabpages" "winsize" ];
         };
       };
 
@@ -199,42 +198,42 @@
     autocmd = [
       {
         event = "BufWritePre";
-        pattern = ["*"];
+        pattern = [ "*" ];
         callback = {
           __raw = "function() vim.lsp.buf.format() end";
         };
       }
       {
         event = "TextYankPost";
-        pattern = ["*"];
+        pattern = [ "*" ];
         callback = {
           __raw = "function() vim.highlight.on_yank({higroup = 'Visual', timeout = 200}) end";
         };
       }
       {
         event = "FileType";
-        pattern = ["nix"];
+        pattern = [ "nix" ];
         callback = {
           __raw = "function() vim.opt_local.shiftwidth = 2 end";
         };
       }
       {
         event = "FileType";
-        pattern = ["python"];
+        pattern = [ "python" ];
         callback = {
           __raw = "function() vim.opt_local.shiftwidth = 4 end";
         };
       }
       {
         event = "FileType";
-        pattern = ["javascript" "typescript" "javascriptreact" "typescriptreact"];
+        pattern = [ "javascript" "typescript" "javascriptreact" "typescriptreact" ];
         callback = {
           __raw = "function() vim.opt_local.shiftwidth = 2 end";
         };
       }
       {
         event = "BufRead";
-        pattern = ["*"];
+        pattern = [ "*" ];
         callback = {
           __raw = "function() vim.cmd('silent! normal! zv') end";
         };

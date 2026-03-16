@@ -1,0 +1,13 @@
+# Pre-commit hooks for NixOS configuration
+# Install: pre-commit install
+# Run manually: pre-commit run --all-files
+
+repos:
+  # Use system-installed tools via local hooks
+  - repo: local
+    hooks:
+      - id: nixpkgs-fmt
+        name: Nix code formatter
+        entry: nixpkgs-fmt
+        language: system
+        types: [nix]

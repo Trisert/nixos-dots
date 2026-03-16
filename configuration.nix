@@ -2,11 +2,10 @@
 # This is the main entry point for system-wide configuration
 # All configuration is organized into separate modules for maintainability
 
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }:
 
 {

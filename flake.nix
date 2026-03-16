@@ -47,15 +47,14 @@
   };
 
   outputs =
-    {
-      nixpkgs,
-      home-manager,
-      hyprland,
-      nixvim,
-      determinate,
-      llama-cpp,
-      firefox-addons,
-      ...
+    { nixpkgs
+    , home-manager
+    , hyprland
+    , nixvim
+    , determinate
+    , llama-cpp
+    , firefox-addons
+    , ...
     }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {

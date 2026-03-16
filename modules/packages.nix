@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 
 {
@@ -19,5 +18,7 @@
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })
+    # Pre-commit hook tools
+    nixpkgs-fmt
   ];
 }

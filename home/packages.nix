@@ -1,8 +1,7 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }:
 
 {
@@ -10,5 +9,7 @@
     nixfmt
     swww
     gh
+    pre-commit # For pre-commit hooks
+    statix # Nix linter
   ];
 }

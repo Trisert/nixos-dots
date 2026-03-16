@@ -1,7 +1,6 @@
-{
-  config,
-  pkgs,
-  ...
+{ config
+, pkgs
+, ...
 }:
 
 {
@@ -43,7 +42,8 @@
 
   nix.gc = {
     automatic = true;
-    dates = "hourly";
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
   environment.variables.EDITOR = "neovim";

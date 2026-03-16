@@ -2,12 +2,11 @@
 # This is the main entry point for user-specific configuration
 # All home configuration is organized into separate modules for maintainability
 
-{
-  config,
-  pkgs,
-  inputs,
-  lib,
-  ...
+{ config
+, pkgs
+, inputs
+, lib
+, ...
 }:
 
 {

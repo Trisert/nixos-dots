@@ -1,17 +1,17 @@
-{
-  config,
-  pkgs,
-  inputs,
-  ...
+{ config
+, pkgs
+, inputs
+, ...
 }:
 
 let
   pkgs-hypr = inputs.hyprland.inputs.nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-in {
+in
+{
   hardware.graphics = {
-    package     = pkgs-hypr.mesa;
+    package = pkgs-hypr.mesa;
     enable32Bit = true;
-    package32   = pkgs-hypr.pkgsi686Linux.mesa;
+    package32 = pkgs-hypr.pkgsi686Linux.mesa;
   };
   services.xserver.videoDrivers = [ "nvidia" ];
   hardware.nvidia.open = false;

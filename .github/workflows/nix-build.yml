@@ -1,0 +1,56 @@
+name: "NixOS Configuration Check"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  # Check formatting and linting
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Check formatting with nixpkgs-fmt
+        run: |
+          nix-shell -p nixpkgs-fmt --run \
+            "find . -name '*.nix' -exec nixpkgs-fmt --check {} \;"
+
+      - name: Lint with statix
+        run: |
+          nix-shell -p statix --run "statix check"
+
+  # Verify flake is valid
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Nix
+        uses: DeterminateSystems/nix-installer-action@main
+
+      - name: Show flake metadata
+        run: nix flake metadata
+
+      - name: Check flake evaluates
+        run: nix flake show
+
+      - name: Build home configuration
+        run: |
+          nix build .#homeConfigurations.nicola.activationPackage
+        # Note: Full system build requires x86_64-linux runner
+
+  # Optional: Full system build (requires self-hosted or x86_64 runner)
+  # build-system:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'pull_request'
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - uses: DeterminateSystems/nix-installer-action@main
+  #     - name: Build NixOS configuration
+  #       run: nix build .#nixosConfigurations.nixos.config.system.build.toplevel
