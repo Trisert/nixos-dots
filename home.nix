@@ -27,7 +27,7 @@
     ./home/shell/default.nix
     ./home/editor/nixvim.nix
     ./home/wm/hyprland.nix
-    ./home/waybar.nix
+    ./home/wm/noctalia.nix
   ];
 
   # Home Manager version

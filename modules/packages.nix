@@ -18,10 +18,6 @@
     claude-code
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
-      themeConfig = {
-        Background = "${config.stylix.image}";
-        Font = config.stylix.fonts.sansSerif.name;
-      };
     })
   ];
 

@@ -8,11 +8,7 @@
   programs.kitty = {
     enable = true;
     settings = {
-      font_size = 10;
+      include = "themes/noctalia.conf";
     };
-  };
-
-  programs.tofi = {
-    enable = true;
   };
 }

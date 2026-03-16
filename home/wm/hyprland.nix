@@ -9,24 +9,26 @@
     "$mod" = "SUPER";
     exec-once = [
       "swww-daemon"
-      "swww img /home/nicola/Pictures/van_allen.jpeg"
-      "waybar"
+      "noctalia-shell"
     ];
     bindm = [
       "SUPER, mouse:272, movewindow"
     ];
     bind = [
+      "$mod SHIFT, R, exec, hyprctl reload"
       "$mod, w, killactive,"
-      "$mod, SPACE, exec, tofi-run"
+      "$mod, SPACE, exec, noctalia-shell ipc call launcher toggle"
+      "$mod, L, exec, noctalia-shell ipc call lockScreen lock"
       "$mod, Return, exec, kitty"
       "$mod, b, exec, firefox"
       ", Print, exec, grimblast copy area"
-      ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+      "$mod, N, exec, noctalia-shell ipc call controlCenter toggle"
+      ", XF86AudioMute, exec, noctalia-shell ipc call volume muteOutput"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
     ];
     binde = [
-      ", XF86AudioRaiseVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+"
-      ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"
+      ", XF86AudioRaiseVolume, exec, noctalia-shell ipc call volume increase"
+      ", XF86AudioLowerVolume, exec, noctalia-shell ipc call volume decrease"
     ]
     ++ (builtins.concatLists (
       builtins.genList (

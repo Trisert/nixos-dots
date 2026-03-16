@@ -27,7 +27,17 @@
       url = "github:ggerganov/llama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
+
+    noctalia = {
+      url = "github:noctalia-dev/noctalia-shell";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.noctalia-qs.follows = "noctalia-qs";
+    };
+
+    noctalia-qs = {
+      url = "github:noctalia-dev/noctalia-qs";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -38,11 +48,11 @@
       nixvim,
       determinate,
       llama-cpp,
-      stylix,
       ...
     }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
           { _module.args.inputs = inputs; }
@@ -60,7 +70,6 @@
               })
             ];
           }
-          stylix.nixosModules.stylix
           determinate.nixosModules.default
           ./configuration.nix
           home-manager.nixosModules.home-manager

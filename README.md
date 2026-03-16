@@ -59,9 +59,9 @@ nixos-config/
     ├── git.nix                   # Git settings
     ├── packages.nix              # User packages
     ├── shell/default.nix         # Bash, Starship, Zoxide
-    ├── terminals/default.nix     # Kitty, Tofi
-    ├── waybar.nix                # Status bar config
-    └── wm/hyprland.nix           # Window manager settings
+    ├── terminals/default.nix     # Kitty terminal
+    ├── wm/hyprland.nix           # Window manager settings
+    └── wm/noctalia.nix           # Noctalia shell configuration
 ```
 
 ### Modularization Graph
@@ -89,7 +89,7 @@ graph TD
     C --> R[home/terminals/default.nix]
     C --> S[home/editor/nixvim.nix]
     C --> T[home/wm/hyprland.nix]
-    C --> U[home/waybar.nix]
+    C --> U[home/wm/noctalia.nix]
 
     K -.->|depends on| T
     L -.->|provides audio| T
@@ -280,11 +280,14 @@ The Neovim configuration uses default plugin keybindings. Available commands:
 - Tiling behavior with smart gaps
 - Application rules for Steam and Discord
 
-#### `home/waybar.nix`
-- Left: logo, workspaces
-- Center: clock, window title
-- Right: system tray, audio, network, CPU, memory, battery
-- Catppuccin styling with CSS modules
+#### `home/wm/noctalia.nix`
+- **Noctalia Shell** - Modern Wayland shell with integrated bar and widgets
+- Application launcher with search (SUPER+SPACE)
+- Control center with quick settings (SUPER+N)
+- Lock screen functionality (SUPER+L)
+- Volume controls via media keys
+- Integrated system tray, notification history, and battery widgets
+- Compact bar with workspace switcher and clock
 
 ## Module Dependencies
 
@@ -315,7 +318,7 @@ The Neovim configuration uses default plugin keybindings. Available commands:
 - **Desktop Environment** (depends on system):
   - `home/editor/nixvim.nix`
   - `home/wm/hyprland.nix`
-  - `home/waybar.nix`
+  - `home/wm/noctalia.nix`
 
 ## Credits
 

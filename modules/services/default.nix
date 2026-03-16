@@ -35,4 +35,7 @@
   programs.ssh.startAgent = true;
 
   programs.steam.enable = true;
+
+  services.power-profiles-daemon.enable = true;
+  services.upower.enable = true;
 }

@@ -20,25 +20,13 @@
     ./modules/networking.nix
     ./modules/internationalization.nix
     ./modules/fonts.nix
+    ./modules/hardware/default.nix
     ./modules/hardware/nvidia.nix
     ./modules/display/default.nix
     ./modules/services/default.nix
     ./modules/users/default.nix
     ./modules/packages.nix
   ];
-
-  # Stylix theming
-  stylix = {
-    enable = true;
-    image = ./van_allen.jpeg;
-    polarity = "dark";
-    fonts = {
-      monospace = {
-        name = "JetBrainsMono Nerd Font";
-        package = pkgs.nerd-fonts.jetbrains-mono;
-      };
-    };
-  };
 
   # GTK theme
   environment.variables.GTK_THEME = "Adwaita:dark";
