@@ -38,6 +38,12 @@
       url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # Firefox extensions
+    firefox-addons = {
+      url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -48,6 +54,7 @@
       nixvim,
       determinate,
       llama-cpp,
+      firefox-addons,
       ...
     }@inputs:
     {

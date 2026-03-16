@@ -20,6 +20,4 @@
       embeddedTheme = "astronaut";
     })
   ];
-
-  programs.firefox.enable = true;
 }

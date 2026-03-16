@@ -22,6 +22,7 @@
   # Import home modules
   imports = [
     ./home/packages.nix
+    ./home/firefox.nix
     ./home/git.nix
     ./home/terminals/default.nix
     ./home/shell/default.nix
