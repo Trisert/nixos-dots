@@ -18,9 +18,9 @@
           # Privacy & Security
           "privacy.trackingprotection.enabled" = true;
           "privacy.trackingprotection.pbmode.enabled" = true;
-          "privacy.resistFingerprinting" = true;
+          "privacy.resistFingerprinting" = false;
           "network.cookie.cookieBehavior" = 1; # Accept cookies from visited sites only
-          "privacy.sanitize.sanitizeOnShutdown" = true;
+          "privacy.sanitize.sanitizeOnShutdown" = false;
 
           # Disable telemetry
           "datareporting.healthreport.uploadEnabled" = false;
