@@ -2,11 +2,12 @@
 # This is the main entry point for user-specific configuration
 # All home configuration is organized into separate modules for maintainability
 
-{ config
-, pkgs
-, inputs
-, lib
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  lib,
+  ...
 }:
 
 {
@@ -28,15 +29,22 @@
         supportsUsageInStreaming = false;
         maxTokensField = "max_tokens";
       };
-      models = [{
-        id = "local";
-        name = "llama.cpp local";
-        reasoning = false;
-        input = [ "text" ];
-        contextWindow = 131072;
-        maxTokens = 4096;
-        cost = { input = 0; output = 0; cacheRead = 0; cacheWrite = 0; };
-      }];
+      models = [
+        {
+          id = "local";
+          name = "llama.cpp local";
+          reasoning = false;
+          input = [ "text" ];
+          contextWindow = 131072;
+          maxTokens = 4096;
+          cost = {
+            input = 0;
+            output = 0;
+            cacheRead = 0;
+            cacheWrite = 0;
+          };
+        }
+      ];
     };
   };
 
@@ -87,6 +95,7 @@
   # Import home modules
   imports = [
     ./home/packages.nix
+    ./home/direnv.nix
     ./home/firefox.nix
     ./home/git.nix
     ./home/terminals/default.nix
