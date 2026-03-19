@@ -54,22 +54,22 @@
   };
 
   outputs =
-    { nixpkgs
-    , home-manager
-    , hyprland
-    , nixvim
-    , determinate
-    , llama-cpp
-    , firefox-addons
-    , llm-agents
-    , ...
+    {
+      nixpkgs,
+      home-manager,
+      hyprland,
+      nixvim,
+      determinate,
+      llama-cpp,
+      firefox-addons,
+      llm-agents,
+      ...
     }@inputs:
     {
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
-          { _module.args.inputs = inputs; }
           { nix.settings.trusted-users = [ "nicola" ]; }
           {
             nixpkgs.overlays = [
@@ -77,7 +77,7 @@
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
                     cmakeFlags = (old.cmakeFlags or [ ]) ++ [
-                      "-DCMAKE_CUDA_ARCHITECTURES=60;75;80;86"
+                      "-DCMAKE_CUDA_ARCHITECTURES=60;75"
                     ];
                   })
                 );

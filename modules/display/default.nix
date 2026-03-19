@@ -1,16 +1,12 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 
 {
   services.xserver.enable = false;
-
-  services.xserver.xkb = {
-    layout = "it";
-    variant = "";
-  };
 
   console.keyMap = "it2";
 

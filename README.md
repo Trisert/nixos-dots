@@ -10,8 +10,7 @@ A modern, high-performance NixOS configuration with comprehensive development to
 ### Desktop Environment
 - **Hyprland** - Dynamic tiling Wayland compositor with beautiful animations
 - **SDDM** - Simple Desktop Display Manager with custom Astronaut theme
-- **Waybar** - Customizable status bar with Catppuccin styling
-- **Stylix** - System-wide theming with base16 color schemes
+- **Noctalia Shell** - Modern Wayland shell with integrated bar and widgets
 
 ### Development Environment
 - **Neovim (Nixvim)** - Fully configured with:
@@ -46,6 +45,7 @@ nixos-config/
 │   ├── boot.nix                  # systemd-boot, EFI
 │   ├── display/default.nix       # Wayland, SDDM, Hyprland
 │   ├── fonts.nix                 # Font configuration
+│   ├── hardware/default.nix    # Bluetooth, zram swap
 │   ├── hardware/nvidia.nix       # GPU drivers and power management
 │   ├── internationalization.nix  # Locale, timezone, keyboard
 │   ├── networking.nix            # NetworkManager, hostname
@@ -56,6 +56,8 @@ nixos-config/
 │
 └── home/                          # Home Manager modules
     ├── editor/nixvim.nix         # Neovim configuration
+    ├── direnv.nix                # direnv with nix-direnv
+    ├── firefox.nix               # Firefox with privacy settings
     ├── git.nix                   # Git settings
     ├── packages.nix              # User packages
     ├── shell/default.nix         # Bash, Starship, Zoxide
@@ -180,19 +182,6 @@ home.packages = with pkgs; [
    ];
    ```
 
-### Changing the Theme
-
-The system uses **Stylix** for theming. Change the base color scheme in `flake.nix`:
-
-```nix
-stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/catppuccin-mocha.yaml";
-```
-
-Or set a custom background:
-```nix
-stylix.image = ./path/to/your/image.png;
-```
-
 ## Key Bindings
 
 ### Hyprland (Window Manager)
@@ -200,7 +189,7 @@ stylix.image = ./path/to/your/image.png;
 | Key | Action |
 |-----|--------|
 | `SUPER + RETURN` | Open terminal (Kitty) |
-| `SUPER + SPACE` | Open application launcher (Tofi) |
+| `SUPER + SPACE` | Open application launcher (Noctalia) |
 | `SUPER + B` | Open browser (Firefox) |
 | `SUPER + W` | Close window |
 | `SUPER + 1-9` | Switch to workspace |
@@ -240,15 +229,15 @@ The Neovim configuration uses default plugin keybindings. Available commands:
 #### `modules/nix/default.nix`
 - Enables Flakes and nix-command
 - Configures parallel evaluation (`eval-cores = 0`)
-- Sets up substituters (Cachix, Determinate)
-- Configures garbage collection
-- Limits nix-daemon memory to 24GB
+- Sets up substituters (Cachix, numtide, devenv)
+- Configures garbage collection with min-free/max-free thresholds
+- Limits nix-daemon memory to 20GB
 
 #### `modules/hardware/nvidia.nix`
 - Installs NVIDIA stable drivers
 - Enables mode setting
-- Creates TDP limiting service (125W)
-- Supports architectures: 60, 75, 80, 86
+- Creates TDP limiting service (125W) for Tesla P100
+- Supports architectures: 60 (Pascal), 75 (Turing)
 
 #### `modules/display/default.nix`
 - Configures SDDM with Astronaut theme
@@ -258,8 +247,8 @@ The Neovim configuration uses default plugin keybindings. Available commands:
 
 #### `modules/services/default.nix`
 - PipeWire audio with PulseAudio compatibility
-- EarlyOOM (memory management at 90%)
-- Fstrim (SSD optimization weekly)
+- EarlyOOM (memory management at 92% free)
+- Ananicy (auto process priority)
 - CUPS (printing)
 - Steam gaming platform
 - SSH agent
@@ -325,7 +314,7 @@ The Neovim configuration uses default plugin keybindings. Available commands:
 - **NixOS** - The purely functional Linux distribution
 - **Home Manager** - User configuration management
 - **Hyprland** - Dynamic tiling Wayland compositor
-- **Stylix** - System-wide theming
+- **Noctalia** - Modern Wayland shell
 - **NixVim** - Neovim configuration with Nix
 - **Catppuccin** - Beautiful color scheme
 

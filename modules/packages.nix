@@ -1,13 +1,13 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 
 {
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    vim
     wget
     neovim
     git
@@ -19,6 +19,6 @@
       embeddedTheme = "astronaut";
     })
     # Pre-commit hook tools
-    nixpkgs-fmt
+    nixfmt
   ];
 }

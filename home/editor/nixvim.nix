@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 
 {
@@ -90,11 +91,6 @@
         };
       };
 
-      lsp-format = {
-        enable = true;
-        lspServersToEnable = [ "pyright" "ts_ls" "rust_analyzer" "nixd" ];
-      };
-
       # Inlay hints (inline type information)
       lsp-lines.enable = true;
 
@@ -137,8 +133,19 @@
         };
       };
 
-      nvim-autopairs.enable = true;
-      gitsigns.enable = true;
+      nvim-autopairs = {
+        enable = true;
+        settings.check_ts = true;
+      };
+      gitsigns = {
+        enable = true;
+        settings = {
+          current_line_blame = true;
+          current_line_blame_opts = {
+            delay = 500;
+          };
+        };
+      };
       lualine = {
         enable = true;
         settings = {
@@ -155,23 +162,17 @@
         enable = true;
         settings = {
           dir = "~/.config/nvim/sessions";
-          options = [ "buffers" "curdir" "tabpages" "winsize" ];
+          options = [
+            "buffers"
+            "curdir"
+            "tabpages"
+            "winsize"
+          ];
         };
       };
 
       # Better indentation guides
       indent-blankline.enable = true;
-
-      # Auto-pair enhancements
-      nvim-autopairs.settings.check_ts = true;
-
-      # Git integration enhancements
-      gitsigns.settings = {
-        current_line_blame = true;
-        current_line_blame_opts = {
-          delay = 500;
-        };
-      };
 
       # Notify system
       notify = {
@@ -226,7 +227,12 @@
       }
       {
         event = "FileType";
-        pattern = [ "javascript" "typescript" "javascriptreact" "typescriptreact" ];
+        pattern = [
+          "javascript"
+          "typescript"
+          "javascriptreact"
+          "typescriptreact"
+        ];
         callback = {
           __raw = "function() vim.opt_local.shiftwidth = 2 end";
         };

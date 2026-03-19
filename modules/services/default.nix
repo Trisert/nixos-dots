@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 
 {
@@ -18,10 +19,6 @@
     enable = true;
     freeMemThreshold = 8;
     freeSwapThreshold = 15;
-  };
-
-  services.fstrim = {
-    enable = false;
   };
 
   services.ananicy = {

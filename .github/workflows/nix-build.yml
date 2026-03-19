@@ -16,10 +16,10 @@ jobs:
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
 
-      - name: Check formatting with nixpkgs-fmt
+      - name: Check formatting with nixfmt
         run: |
-          nix-shell -p nixpkgs-fmt --run \
-            "find . -name '*.nix' -exec nixpkgs-fmt --check {} \;"
+          nix-shell -p nixfmt --run \
+            "find . -name '*.nix' -exec nixfmt --check {} \;"
 
       - name: Lint with statix
         run: |
