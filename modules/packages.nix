@@ -18,7 +18,5 @@
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })
-    # Pre-commit hook tools
-    nixfmt
   ];
 }

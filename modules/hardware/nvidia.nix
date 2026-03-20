@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 
 {
@@ -12,6 +13,7 @@
   hardware.nvidia.open = false;
   hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
   hardware.nvidia.modesetting.enable = true;
+  hardware.nvidia.powerManagement.enable = true;
 
   systemd.services.nvidia-tdp = {
     description = "Set NVIDIA TDP limit";
