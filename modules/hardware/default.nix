@@ -8,7 +8,7 @@
   hardware.bluetooth.enable = true;
   zramSwap = {
     enable = true;
-    memoryMaxSize = "8G";
+    memoryMax = 8 * 1024 * 1024 * 1024; # 8GB
     algorithm = "zstd";
   };
 }
