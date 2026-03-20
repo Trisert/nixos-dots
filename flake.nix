@@ -78,6 +78,12 @@
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
                     cmakeFlags = (old.cmakeFlags or [ ]) ++ [
                       "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_CURL=ON"
+                      "-DLLAMA_SSL_SUPPORT=ON"
+                    ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.curl
+                      prev.openssl
                     ];
                   })
                 );
