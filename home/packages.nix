@@ -1,7 +1,8 @@
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 
 let
@@ -17,5 +18,6 @@ in
     llm-agents.pi
     llm-agents.hermes-agent
     devenv
+    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
   ];
 }

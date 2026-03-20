@@ -51,6 +51,12 @@
 
     # LLM agents
     llm-agents.url = "github:numtide/llm-agents.nix";
+
+    # Rust overlay
+    rust-overlay = {
+      url = "github:oxalica/rust-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -63,6 +69,7 @@
       llama-cpp,
       firefox-addons,
       llm-agents,
+      rust-overlay,
       ...
     }@inputs:
     {
@@ -73,6 +80,7 @@
           { nix.settings.trusted-users = [ "nicola" ]; }
           {
             nixpkgs.overlays = [
+              rust-overlay.overlays.default
               (final: prev: {
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
