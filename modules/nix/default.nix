@@ -38,6 +38,7 @@
     # Substitutes
     substitute = true;
     builders-use-substitutes = true;
+    connect-timeout = 5;
 
     # Auto cleanup when disk is low
     min-free = 1073741824; # 1GB
