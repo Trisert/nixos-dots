@@ -105,6 +105,12 @@
     ./home/wm/noctalia.nix
   ];
 
+  # GTK icon theme
+  gtk.iconTheme = {
+    package = pkgs.papirus-icon-theme;
+    name = "Papirus";
+  };
+
   # Home Manager version
   home.stateVersion = "25.11";
 }

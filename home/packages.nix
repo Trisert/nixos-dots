@@ -13,6 +13,8 @@ in
     nixfmt
     swww
     gh
+    thunar
+    papirus-icon-theme
     pre-commit # For pre-commit hooks
     statix # Nix linter
     llm-agents.pi
