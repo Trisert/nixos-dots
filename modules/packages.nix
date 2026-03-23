@@ -15,6 +15,7 @@
     llama-cpp-cuda
     ripgrep
     claude-code
+    mindustry-wayland
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })

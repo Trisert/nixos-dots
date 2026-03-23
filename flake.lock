@@ -694,11 +694,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1773921246,
-        "narHash": "sha256-/0CC+evYtA30F25Wn5s7wGmLmoU7w/5tYE5p2YnIWjA=",
+        "lastModified": 1774189762,
+        "narHash": "sha256-HdOFOgNTRBSvX8j87r3eb3azCzPfOAzejNlaaPhG8Fk=",
         "owner": "ggerganov",
         "repo": "llama.cpp",
-        "rev": "cd708db0ccd59e0770b5ff655db55c995b6fd174",
+        "rev": "81bc4d3ddcaa1767b60837d73a0c31babb1190cf",
         "type": "github"
       },
       "original": {
