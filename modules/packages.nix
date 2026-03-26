@@ -9,8 +9,6 @@
 
   environment.systemPackages = with pkgs; [
     wget
-    neovim
-    git
     opencode
     llama-cpp-cuda
     ripgrep

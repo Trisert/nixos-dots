@@ -1,6 +1,7 @@
-{ config
-, pkgs
-, ...
+{
+  config,
+  pkgs,
+  ...
 }:
 
 {
@@ -11,6 +12,5 @@
       "networkmanager"
       "wheel"
     ];
-    packages = with pkgs; [ ];
   };
 }
