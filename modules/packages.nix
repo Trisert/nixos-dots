@@ -14,6 +14,7 @@
     ripgrep
     claude-code
     mindustry-wayland
+    antigravity
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })
