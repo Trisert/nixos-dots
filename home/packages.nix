@@ -14,7 +14,6 @@ in
     swww
     gh
     thunar
-    pre-commit # For pre-commit hooks
     statix # Nix linter
     llm-agents.pi
     llm-agents.hermes-agent
