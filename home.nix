@@ -103,6 +103,7 @@
     ./home/editor/nixvim.nix
     ./home/wm/hyprland.nix
     ./home/wm/noctalia.nix
+    ./home/dev.nix
   ];
 
   # GTK icon theme

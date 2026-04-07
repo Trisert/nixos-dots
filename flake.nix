@@ -57,6 +57,9 @@
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # STM32CubeIDE
+    stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
   };
 
   outputs =
@@ -81,6 +84,7 @@
           {
             nixpkgs.overlays = [
               rust-overlay.overlays.default
+              # stm32cubeide.overlays.default  # Uncomment after manually downloading the installer
               (final: prev: {
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
