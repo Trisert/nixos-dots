@@ -8,7 +8,7 @@
   wayland.windowManager.hyprland.settings = {
     "$mod" = "SUPER";
     exec-once = [
-      "swww-daemon"
+      "awww-daemon"
       "noctalia-shell"
     ];
     bindm = [

@@ -11,7 +11,7 @@ in
 {
   home.packages = with pkgs; [
     nixfmt
-    swww
+    awww
     gh
     thunar
     statix # Nix linter
