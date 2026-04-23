@@ -15,6 +15,7 @@
     claude-code
     mindustry-wayland
     antigravity
+    discord
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })

@@ -2,10 +2,11 @@
 # This is the main entry point for system-wide configuration
 # All configuration is organized into separate modules for maintainability
 
-{ config
-, pkgs
-, inputs
-, ...
+{
+  config,
+  pkgs,
+  inputs,
+  ...
 }:
 
 {
@@ -23,6 +24,7 @@
     ./modules/hardware/nvidia.nix
     ./modules/display/default.nix
     ./modules/services/default.nix
+    ./modules/services/hermes.nix
     ./modules/users/default.nix
     ./modules/packages.nix
   ];
