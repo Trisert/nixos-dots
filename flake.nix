@@ -43,24 +43,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # Firefox extensions
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # LLM agents
     llm-agents.url = "github:numtide/llm-agents.nix";
-    hermes-agent.url = "github:NousResearch/hermes-agent";
 
-    # Rust overlay
     rust-overlay = {
       url = "github:oxalica/rust-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # STM32CubeIDE
     stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
+
+    nh = {
+      url = "github:nix-community/nh";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -73,8 +73,8 @@
       llama-cpp,
       firefox-addons,
       llm-agents,
-      hermes-agent,
       rust-overlay,
+      nh,
       ...
     }@inputs:
     {
@@ -86,7 +86,6 @@
           {
             nixpkgs.overlays = [
               rust-overlay.overlays.default
-              # stm32cubeide.overlays.default  # Uncomment after manually downloading the installer
               (final: prev: {
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
@@ -101,6 +100,7 @@
                     ];
                   })
                 );
+                nh = prev.nh;
               })
             ];
           }

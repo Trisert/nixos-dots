@@ -16,7 +16,7 @@ in
     thunar
     statix # Nix linter
     llm-agents.pi
-    llm-agents.hermes-agent
+    llm-agents.default
     devenv
     (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
   ];

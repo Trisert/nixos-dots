@@ -31,29 +31,6 @@
     plugins = {
       neo-tree.enable = true;
       telescope.enable = true;
-      treesitter = {
-        enable = true;
-        settings = {
-          highlight.enable = true;
-          indent.enable = true;
-          indent.disable = [ "python" ];
-        };
-        grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
-          bash
-          c
-          cpp
-          lua
-          python
-          rust
-          nix
-          javascript
-          typescript
-          json
-          yaml
-          markdown
-          markdown-inline
-        ];
-      };
 
       web-devicons.enable = true;
 
@@ -135,7 +112,7 @@
 
       nvim-autopairs = {
         enable = true;
-        settings.check_ts = true;
+        settings.check_ts = false;
       };
       gitsigns = {
         enable = true;

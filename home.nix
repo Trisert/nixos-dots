@@ -60,6 +60,7 @@
     ./home/wm/hyprland.nix
     ./home/wm/noctalia.nix
     ./home/dev.nix
+    ./home/nh.nix
   ];
 
   # GTK icon theme
