@@ -31,6 +31,10 @@
       url = "github:ggerganov/llama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ik-llama-cpp = {
+      url = "github:ikawrakow/ik_llama.cpp";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -71,6 +75,7 @@
       nixvim,
       determinate,
       llama-cpp,
+      ik-llama-cpp,
       firefox-addons,
       llm-agents,
       rust-overlay,
@@ -98,6 +103,24 @@
                       prev.curl
                       prev.openssl
                     ];
+                  })
+                );
+                ik-llama-cpp-cuda = (
+                  ik-llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
+                    cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+                      "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_CURL=ON"
+                      "-DLLAMA_SSL_SUPPORT=ON"
+                    ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.curl
+                      prev.openssl
+                    ];
+                    postInstall = (old.postInstall or "") + ''
+                      for bin in $out/bin/*; do
+                        mv "$bin" "$out/bin/ik-$(basename "$bin")"
+                      done
+                    '';
                   })
                 );
                 nh = prev.nh;

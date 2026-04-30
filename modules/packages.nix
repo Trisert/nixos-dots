@@ -11,6 +11,7 @@
     wget
     opencode
     llama-cpp-cuda
+    ik-llama-cpp-cuda
     ripgrep
     claude-code
     mindustry-wayland
