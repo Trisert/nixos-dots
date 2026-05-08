@@ -31,6 +31,10 @@
       url = "github:ggerganov/llama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llama-cpp-mtp = {
+      url = "github:am17an/llama.cpp/mtp-clean";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     ik-llama-cpp = {
       url = "github:ikawrakow/ik_llama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -75,6 +79,7 @@
       nixvim,
       determinate,
       llama-cpp,
+      llama-cpp-mtp,
       ik-llama-cpp,
       firefox-addons,
       llm-agents,
@@ -103,6 +108,24 @@
                       prev.curl
                       prev.openssl
                     ];
+                  })
+                );
+                llama-cpp-mtp-cuda = (
+                  llama-cpp-mtp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
+                    cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+                      "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_CURL=ON"
+                      "-DLLAMA_SSL_SUPPORT=ON"
+                    ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.curl
+                      prev.openssl
+                    ];
+                    postInstall = (old.postInstall or "") + ''
+                      for bin in $out/bin/*; do
+                        mv "$bin" "$out/bin/mtp-$(basename "$bin")"
+                      done
+                    '';
                   })
                 );
                 ik-llama-cpp-cuda = (
