@@ -5,7 +5,10 @@
 }:
 
 {
-  wayland.windowManager.hyprland.settings = {
+  wayland.windowManager.hyprland = {
+    enable = true;
+    configType = "hyprlang";
+    settings = {
     "$mod" = "SUPER";
     exec-once = [
       "awww-daemon"
@@ -45,6 +48,7 @@
     ));
     input = {
       kb_layout = "it";
+    };
     };
   };
 }
