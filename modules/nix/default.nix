@@ -11,6 +11,7 @@
       "flakes"
     ];
     auto-optimise-store = true;
+    sandbox = false;
 
     # Use all cores for evaluation
     eval-cores = 0;

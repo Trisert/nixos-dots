@@ -6,6 +6,7 @@
       "https://hyprland.cachix.org"
       "https://cache.numtide.com"
       "https://devenv.cachix.org"
+      "https://niri.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -13,6 +14,7 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
       "devenv.cachix.org-1:w1cLUi8dv3hFqSPwmOyFuP2AKQluN1ZEE4mAQ2qU2ws="
+      "niri.cachix.org-1:Wv0OmO7PsuocRKzfDoJ3mulSl7Z6oezYhGhR+3W2964="
     ];
   };
   inputs = {
@@ -65,6 +67,11 @@
       url = "github:nix-community/nh";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -80,6 +87,7 @@
       llm-agents,
       rust-overlay,
       nh,
+      niri,
       ...
     }@inputs:
     {
@@ -98,6 +106,7 @@
                         "-DCMAKE_CUDA_ARCHITECTURES=60;75"
                         "-DLLAMA_CURL=ON"
                         "-DLLAMA_SSL_SUPPORT=ON"
+                        "-DLLAMA_BUILD_UI=OFF"
                         "-DLLAMA_BUILD_WEBUI=OFF"
                       ];
                       buildInputs = (old.buildInputs or [ ]) ++ [
@@ -112,6 +121,7 @@
                         "-DCMAKE_CUDA_ARCHITECTURES=60;75"
                         "-DLLAMA_CURL=ON"
                         "-DLLAMA_SSL_SUPPORT=ON"
+                        "-DLLAMA_BUILD_UI=OFF"
                         "-DLLAMA_BUILD_WEBUI=OFF"
                       ];
                     buildInputs = (old.buildInputs or [ ]) ++ [
@@ -152,6 +162,9 @@
                       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
                   };
                 };
+              sharedModules = [
+                niri.homeModules.niri
+              ];
             };
           }
         ];

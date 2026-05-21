@@ -58,6 +58,7 @@
     ./home/shell/default.nix
     ./home/editor/nixvim.nix
     ./home/wm/hyprland.nix
+    ./home/wm/niri.nix
     ./home/wm/noctalia.nix
     ./home/dev.nix
     ./home/nh.nix
