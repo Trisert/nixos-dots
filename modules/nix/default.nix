@@ -14,7 +14,7 @@
     sandbox = true;
 
     # Use all cores for evaluation
-    eval-cores = 0;
+    # eval-cores = 0;
 
     # Parallel builds
     max-jobs = "auto";
