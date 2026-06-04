@@ -24,7 +24,6 @@
     ./modules/hardware/nvidia.nix
     ./modules/display/default.nix
     ./modules/services/default.nix
-    ./modules/services/ccache.nix
     ./modules/users/default.nix
     ./modules/packages.nix
   ];
