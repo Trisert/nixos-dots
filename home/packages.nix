@@ -17,6 +17,7 @@ in
     statix # Nix linter
     llm-agents.pi
     llm-agents.default
+    codex
     devenv
     (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
   ];

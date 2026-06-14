@@ -27,7 +27,7 @@
     nixvim = {
       url = "github:nix-community/nixvim";
     };
-    # determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
+    determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
     llama-cpp = {
       url = "github:ggerganov/llama.cpp";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -79,7 +79,7 @@
       home-manager,
       hyprland,
       nixvim,
-      # determinate,
+      determinate,
       llama-cpp,
       ik-llama-cpp,
       firefox-addons,
@@ -138,7 +138,7 @@
               })
             ];
           }
-          # determinate.nixosModules.default
+          determinate.nixosModules.default
           ./configuration.nix
           home-manager.nixosModules.home-manager
           {
