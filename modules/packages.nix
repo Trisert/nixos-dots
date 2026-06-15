@@ -7,6 +7,8 @@
 {
   nixpkgs.config.allowUnfree = true;
 
+  environment.sessionVariables.LLAMA_CPP_API_KEY = "sk-no-key-required";
+
   environment.systemPackages = with pkgs; [
     wget
     opencode

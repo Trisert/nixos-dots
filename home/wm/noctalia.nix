@@ -2,54 +2,43 @@
 {
   imports = [ inputs.noctalia.homeModules.default ];
 
-  programs.noctalia-shell = {
+  programs.noctalia = {
     enable = true;
+    systemd.enable = true;
 
     settings = {
+      shell = {
+        avatar_path = "/home/nicola/.face";
+        corner_radius_scale = 0.8;
+      };
+
       bar = {
-        density = "compact";
-        position = "top";
-        showCapsule = true;
-        widgets = {
-          left = [
-            { id = "Launcher"; }
-            { id = "Clock"; }
-            { id = "ActiveWindow"; }
-          ];
-          center = [
-            { id = "Workspace"; }
-          ];
-          right = [
-            { id = "Tray"; }
-            { id = "NotificationHistory"; }
-            { id = "Battery"; }
-            { id = "Volume"; }
-            { id = "ControlCenter"; }
-          ];
+        main = {
+          position = "top";
+          capsule = true;
+          thickness = 28;
+          margin_h = 180;
+          margin_v = 10;
+
+          start = [ "launcher" "clock" ];
+          center = [ "workspaces" ];
+          end = [ "tray" "notifications" "battery" "volume" "control-center" ];
         };
       };
 
-      colorSchemes = {
-        darkMode = true;
-        predefinedScheme = "Gruvbox";
-      };
-
-      templates.activeTemplates = [
-        {
-          id = "kitty";
-          active = true;
-        }
-      ];
-
-      general = {
-        avatarImage = "/home/nicola/.face";
-        radiusRatio = 0.8;
+      theme = {
+        mode = "dark";
+        source = "builtin";
+        builtin = "Gruvbox";
+        templates = {
+          enable_builtin_templates = true;
+          builtin_ids = [ "kitty" ];
+        };
       };
 
       location = {
-        name = "Rome, Italy";
-        useFahrenheit = false;
-        use12hourFormat = false;
+        address = "Rome, Italy";
+        auto_locate = false;
       };
     };
   };

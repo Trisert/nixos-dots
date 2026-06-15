@@ -46,14 +46,14 @@
           };
           nixd.enable = true;
         };
-        keymaps.lspKeymaps = {
+        keymaps = {
           silent = true;
           diagnostic = {
             "<leader>ld" = "open_float";
             "[d" = "goto_next";
             "]d" = "goto_prev";
           };
-          buf = {
+          lspBuf = {
             "K" = "hover";
             "gd" = "definition";
             "gD" = "declaration";
@@ -173,7 +173,7 @@
     };
 
     # Autocommands
-    autocmd = [
+    autoCmd = [
       {
         event = "BufWritePre";
         pattern = [ "*" ];
