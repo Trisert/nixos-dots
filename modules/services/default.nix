@@ -39,7 +39,7 @@
     enable = true;
     settings = {
       model = {
-        provider = "openai";
+        provider = "custom";
         default = "llama";
       };
     };
