@@ -39,15 +39,12 @@
     enable = true;
     settings = {
       model = {
-        provider = "openrouter";
-        default = "google/gemma-4-31b-it:free";
-      };
-      openrouter = {
-        response_cache = true;
-        response_cache_ttl = 300;
+        provider = "openai";
+        default = "llama";
       };
     };
     environment = {
+      OPENAI_BASE_URL = "http://localhost:8080/v1";
     };
     addToSystemPackages = true;
   };
