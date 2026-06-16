@@ -14,6 +14,8 @@
   home.username = "nicola";
   home.homeDirectory = "/home/nicola";
 
+  home.sessionVariables.HERMES_HOME = "/var/lib/hermes/.hermes";
+
   # Custom .inputrc configuration
   home.file.".inputrc".text = ''
     set completion-ignore-case on

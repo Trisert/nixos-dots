@@ -8,6 +8,11 @@
   programs.nixvim = {
     enable = true;
 
+    nixpkgs = {
+      hostPlatform = "x86_64-linux";
+      buildPlatform = "x86_64-linux";
+    };
+
     colorschemes.catppuccin.enable = true;
 
     # Set leader key to space

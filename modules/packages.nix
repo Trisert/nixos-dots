@@ -12,6 +12,8 @@
   environment.systemPackages = with pkgs; [
     wget
     opencode
+    agent-browser
+    chromium
     llama-cpp-cuda
     ik-llama-cpp-cuda
     ripgrep

@@ -70,6 +70,8 @@
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    hermes-agent.url = "github:NousResearch/hermes-agent";
   };
 
   outputs =
@@ -86,6 +88,7 @@
       rust-overlay,
       nh,
       niri,
+      hermes-agent,
       ...
     }@inputs:
     {
@@ -101,27 +104,27 @@
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
                     cmakeFlags = (old.cmakeFlags or [ ]) ++ [
-                        "-DCMAKE_CUDA_ARCHITECTURES=60;75"
-                        "-DLLAMA_CURL=ON"
-                        "-DLLAMA_SSL_SUPPORT=ON"
-                        "-DLLAMA_BUILD_UI=OFF"
-                        "-DLLAMA_BUILD_WEBUI=OFF"
-                      ];
-                      buildInputs = (old.buildInputs or [ ]) ++ [
-                        prev.curl
-                        prev.openssl
-                      ];
-                    })
-                  );
-                  ik-llama-cpp-cuda = (
-                    ik-llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
-                      cmakeFlags = (old.cmakeFlags or [ ]) ++ [
-                        "-DCMAKE_CUDA_ARCHITECTURES=60;75"
-                        "-DLLAMA_CURL=ON"
-                        "-DLLAMA_SSL_SUPPORT=ON"
-                        "-DLLAMA_BUILD_UI=OFF"
-                        "-DLLAMA_BUILD_WEBUI=OFF"
-                      ];
+                      "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_CURL=ON"
+                      "-DLLAMA_SSL_SUPPORT=ON"
+                      "-DLLAMA_BUILD_UI=OFF"
+                      "-DLLAMA_BUILD_WEBUI=OFF"
+                    ];
+                    buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.curl
+                      prev.openssl
+                    ];
+                  })
+                );
+                ik-llama-cpp-cuda = (
+                  ik-llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
+                    cmakeFlags = (old.cmakeFlags or [ ]) ++ [
+                      "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_CURL=ON"
+                      "-DLLAMA_SSL_SUPPORT=ON"
+                      "-DLLAMA_BUILD_UI=OFF"
+                      "-DLLAMA_BUILD_WEBUI=OFF"
+                    ];
                     buildInputs = (old.buildInputs or [ ]) ++ [
                       prev.curl
                       prev.openssl
@@ -137,6 +140,7 @@
               })
             ];
           }
+          hermes-agent.nixosModules.default
           determinate.nixosModules.default
           ./configuration.nix
           home-manager.nixosModules.home-manager

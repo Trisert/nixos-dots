@@ -5,7 +5,7 @@
 }:
 
 let
-  noctalia = "noctalia-shell ipc call";
+  noctalia = "noctalia msg";
 in
 {
   programs.niri = {
@@ -22,25 +22,24 @@ in
 
       spawn-at-startup = [
         { argv = [ "awww-daemon" ]; }
-        { argv = [ "noctalia-shell" ]; }
       ];
 
       binds = {
         "Super+Return".action.spawn = [ "kitty" ];
-        "Super+Space".action.spawn = [ "sh" "-c" "${noctalia} launcher toggle" ];
+        "Super+Space".action.spawn = [ "sh" "-c" "${noctalia} panel-toggle launcher" ];
         "Super+B".action.spawn = [ "firefox" ];
         "Super+E".action.spawn = [ "thunar" ];
         "Super+W".action.close-window = {};
-        "Super+L".action.spawn = [ "sh" "-c" "${noctalia} lockScreen lock" ];
-        "Super+N".action.spawn = [ "sh" "-c" "${noctalia} controlCenter toggle" ];
+        "Super+L".action.spawn = [ "sh" "-c" "${noctalia} session lock" ];
+        "Super+N".action.spawn = [ "sh" "-c" "${noctalia} panel-toggle control-center" ];
         "Super+Shift+R".action.show-hotkey-overlay = {};
 
         "Print".action.screenshot = {};
 
-        "XF86AudioMute".action.spawn = [ "sh" "-c" "${noctalia} volume muteOutput" ];
+        "XF86AudioMute".action.spawn = [ "sh" "-c" "${noctalia} volume-mute" ];
         "XF86AudioMicMute".action.spawn = [ "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle" ];
-        "XF86AudioRaiseVolume".action.spawn = [ "sh" "-c" "${noctalia} volume increase" ];
-        "XF86AudioLowerVolume".action.spawn = [ "sh" "-c" "${noctalia} volume decrease" ];
+        "XF86AudioRaiseVolume".action.spawn = [ "sh" "-c" "${noctalia} volume-up" ];
+        "XF86AudioLowerVolume".action.spawn = [ "sh" "-c" "${noctalia} volume-down" ];
 
         "Super+1".action.focus-workspace = 1;
         "Super+2".action.focus-workspace = 2;

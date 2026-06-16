@@ -34,4 +34,21 @@
 
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
+
+  services.hermes-agent = {
+    enable = true;
+    settings = {
+      model = {
+        provider = "openrouter";
+        default = "google/gemma-4-31b-it:free";
+      };
+      openrouter = {
+        response_cache = true;
+        response_cache_ttl = 300;
+      };
+    };
+    environment = {
+    };
+    addToSystemPackages = true;
+  };
 }
