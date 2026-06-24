@@ -714,11 +714,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782284973,
-        "narHash": "sha256-oJsQd1Pyuq7QjAFHCFh+UrKpy8jX1/vMkued7NFpVdc=",
+        "lastModified": 1782293002,
+        "narHash": "sha256-NPc3Rgt4PL3jbL/zhmH+7QDbNnkVFavSog4dtbTDBbM=",
         "owner": "ikawrakow",
         "repo": "ik_llama.cpp",
-        "rev": "7cacf28eecec3f702200de8671ebcc6a3844c6c4",
+        "rev": "bf23a7599ca99366dde90af5c85361757bc9522e",
         "type": "github"
       },
       "original": {
@@ -735,11 +735,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782283786,
-        "narHash": "sha256-8hbc66icC2xgMnic++8MGJpDNKNqUMmnruhBwBaVirw=",
+        "lastModified": 1782294123,
+        "narHash": "sha256-p62/bd68b15zKsgAXONjPihUWee3GjvVxbk75Dn5eG4=",
         "owner": "ggerganov",
         "repo": "llama.cpp",
-        "rev": "88636e178ff2972e1002cf2024cb39008eda1192",
+        "rev": "1191758c5d77e575b4531e057708a562f6f6f0b2",
         "type": "github"
       },
       "original": {
