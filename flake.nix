@@ -71,7 +71,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hermes-agent.url = "github:NousResearch/hermes-agent";
+
   };
 
   outputs =
@@ -88,7 +88,6 @@
       rust-overlay,
       nh,
       niri,
-      hermes-agent,
       ...
     }@inputs:
     {
@@ -140,7 +139,6 @@
               })
             ];
           }
-          hermes-agent.nixosModules.default
           determinate.nixosModules.default
           ./configuration.nix
           home-manager.nixosModules.home-manager

@@ -1,7 +1,5 @@
 {
-  config,
   pkgs,
-  inputs,
   ...
 }:
 
@@ -34,18 +32,4 @@
 
   services.power-profiles-daemon.enable = true;
   services.upower.enable = true;
-
-  services.hermes-agent = {
-    enable = true;
-    settings = {
-      model = {
-        provider = "custom";
-        default = "llama";
-      };
-    };
-    environment = {
-      OPENAI_BASE_URL = "http://localhost:8080/v1";
-    };
-    addToSystemPackages = true;
-  };
 }

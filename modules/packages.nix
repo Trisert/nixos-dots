@@ -12,15 +12,14 @@
   environment.systemPackages = with pkgs; [
     wget
     opencode
-    agent-browser
-    chromium
     llama-cpp-cuda
     ik-llama-cpp-cuda
     ripgrep
     claude-code
-    mindustry-wayland
     antigravity
     discord
+    gemini-cli
+    nodejs
     (sddm-astronaut.override {
       embeddedTheme = "astronaut";
     })
