@@ -24,7 +24,7 @@
       "$mod, Return, exec, kitty"
       "$mod, b, exec, firefox"
       "$mod, e, exec, thunar"
-      ", Print, exec, grimblast copy area"
+      ", Print, exec, grim -g \"$(slurp)\" - | wl-copy"
       "$mod, N, exec, noctalia msg panel-toggle control-center"
       ", XF86AudioMute, exec, noctalia msg volume-mute"
       ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"

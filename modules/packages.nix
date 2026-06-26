@@ -27,6 +27,8 @@
       export LD_LIBRARY_PATH=/run/opengl-driver/lib:${pkgs.cudaPackages.cudatoolkit}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
       exec ${pkgs.hashcat}/bin/hashcat "$@"
     '')
+    grim
+    slurp
     wl-clipboard
   ];
 }
