@@ -21,7 +21,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland.url = "github:hyprwm/Hyprland/v0.55.4";
     nixvim = {
       url = "github:nix-community/nixvim";
     };
@@ -37,11 +37,6 @@
 
     noctalia = {
       url = "github:noctalia-dev/noctalia-shell";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -148,9 +143,6 @@
                   wayland.windowManager.hyprland = {
                     enable = true;
                     xwayland.enable = true;
-                    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
-                    portalPackage =
-                      inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
                   };
                 };
               sharedModules = [ ];

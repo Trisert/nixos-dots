@@ -1,8 +1,13 @@
 {
   config,
   pkgs,
+  inputs,
   ...
 }:
+
+let
+  llm-agents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
+in
 
 {
   nixpkgs.config.allowUnfree = true;
@@ -15,20 +20,13 @@
     llama-cpp-cuda
     ik-llama-cpp-cuda
     ripgrep
-    claude-code
-    antigravity
     discord
     gemini-cli
     nodejs
-    (sddm-astronaut.override {
-      embeddedTheme = "astronaut";
-    })
-    (pkgs.writeShellScriptBin "hashcat" ''
-      export LD_LIBRARY_PATH=/run/opengl-driver/lib:${pkgs.cudaPackages.cudatoolkit}/lib''${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}
-      exec ${pkgs.hashcat}/bin/hashcat "$@"
-    '')
     grim
     slurp
     wl-clipboard
+    llm-agents.default
+    adwaita-icon-theme
   ];
 }

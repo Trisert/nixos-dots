@@ -1,13 +1,9 @@
 {
   config,
   pkgs,
-  inputs,
   ...
 }:
 
-let
-  llm-agents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   home.packages = with pkgs; [
     nixfmt
@@ -15,10 +11,7 @@ in
     gh
     thunar
     statix # Nix linter
-    llm-agents.pi
-    llm-agents.default
     codex
     devenv
-    (rust-bin.selectLatestNightlyWith (toolchain: toolchain.default))
   ];
 }

@@ -6,21 +6,22 @@
 }:
 
 {
-  services.xserver.enable = false;
+  services.xserver.enable = true;
+  services.xserver.layout = "it";
 
   console.keyMap = "it2";
 
-  services.displayManager.sddm = {
-    enable = true;
-    wayland.enable = true;
-    package = pkgs.kdePackages.sddm;
-    theme = "sddm-astronaut-theme";
-    extraPackages = with pkgs; [
-      kdePackages.qtsvg
-      kdePackages.qtvirtualkeyboard
-      kdePackages.qtmultimedia
-    ];
+  services.displayManager.gdm.enable = true;
+
+  environment.variables = {
+    XCURSOR_THEME = "Adwaita";
+    XCURSOR_SIZE = "24";
   };
+
+  environment.etc."icons/default/index.theme".text = ''
+    [Icon Theme]
+    Inherits=Adwaita
+  '';
 
   programs.hyprland = {
     enable = true;
@@ -28,4 +29,5 @@
     portalPackage =
       inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
   };
+
 }
