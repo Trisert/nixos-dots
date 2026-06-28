@@ -11,6 +11,7 @@
     settings = {
     "$mod" = "SUPER";
     exec-once = [
+      "noctalia"
       "awww-daemon"
     ];
     bindm = [

@@ -45,13 +45,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    llm-agents.url = "github:numtide/llm-agents.nix";
-
-    rust-overlay = {
-      url = "github:oxalica/rust-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
 
     nh = {
@@ -71,8 +64,6 @@
       llama-cpp,
       ik-llama-cpp,
       firefox-addons,
-      llm-agents,
-      rust-overlay,
       nh,
       ...
     }@inputs:
@@ -84,7 +75,6 @@
           { nix.settings.trusted-users = [ "nicola" ]; }
           {
             nixpkgs.overlays = [
-              rust-overlay.overlays.default
               (final: prev: {
                 llama-cpp-cuda = (
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {

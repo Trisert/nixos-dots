@@ -5,10 +5,6 @@
   ...
 }:
 
-let
-  llm-agents = inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system};
-in
-
 {
   nixpkgs.config.allowUnfree = true;
 
@@ -26,7 +22,6 @@ in
     grim
     slurp
     wl-clipboard
-    llm-agents.default
     adwaita-icon-theme
   ];
 }
