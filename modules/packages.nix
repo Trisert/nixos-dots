@@ -22,6 +22,7 @@
     grim
     slurp
     wl-clipboard
+    rust-analyzer
     adwaita-icon-theme
   ];
 }

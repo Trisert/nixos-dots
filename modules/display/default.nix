@@ -7,7 +7,7 @@
 
 {
   services.xserver.enable = true;
-  services.xserver.layout = "it";
+  services.xserver.xkb.layout = "it";
 
   console.keyMap = "it2";
 
