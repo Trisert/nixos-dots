@@ -30,8 +30,6 @@
     builders-use-substitutes = true;
     connect-timeout = 5;
 
-    # Build on tmpfs for faster I/O (avoids slow SSD writes during CUDA/Rust compilation)
-    build-dir = "/tmp";
 
     # Auto cleanup when disk is low
     min-free = 1073741824; # 1GB

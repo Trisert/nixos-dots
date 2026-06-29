@@ -6,6 +6,7 @@
       "https://hyprland.cachix.org"
       "https://cache.numtide.com"
       "https://devenv.cachix.org"
+      "https://pi.cachix.org"
     ];
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
@@ -13,6 +14,7 @@
       "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
       "niks3.numtide.com-1:DTx8wZduET09hRmMtKdQDxNNthLQETkc/yaX7M4qK0g="
       "devenv.cachix.org-1:w1cLUi8dv3hFqSPwmOyFuP2AKQluN1ZEE4mAQ2qU2ws="
+      "pi.cachix.org-1:lGeoGJaZ5ZDabuRzkcD5EBTNnDM4HJ1vqeOxlWk1Flk="
     ];
   };
   inputs = {
@@ -45,6 +47,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    pi = {
+      url = "github:lukasl-dev/pi.nix";
+    };
+
     stm32cubeide.url = "git+https://git.sr.ht/~shelvacu/stm32cubeide-nix";
 
     nh = {
@@ -64,6 +70,7 @@
       llama-cpp,
       ik-llama-cpp,
       firefox-addons,
+      pi,
       nh,
       ...
     }@inputs:
@@ -135,7 +142,9 @@
                     xwayland.enable = true;
                   };
                 };
-              sharedModules = [ ];
+              sharedModules = [
+                pi.homeModules.default
+              ];
             };
           }
         ];

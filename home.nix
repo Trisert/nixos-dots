@@ -19,33 +19,10 @@
     set completion-ignore-case on
   '';
 
-  # Pi AI agent configuration
-  home.file.".pi/agent/models.json".text = builtins.toJSON {
-    providers.llama-cpp = {
-      baseUrl = "http://localhost:8080/v1";
-      api = "openai-completions";
-      apiKey = "none";
-      compat = {
-        supportsUsageInStreaming = false;
-        maxTokensField = "max_tokens";
-      };
-      models = [
-        {
-          id = "local";
-          name = "llama.cpp local";
-          reasoning = false;
-          input = [ "text" ];
-          contextWindow = 131072;
-          maxTokens = 4096;
-          cost = {
-            input = 0;
-            output = 0;
-            cacheRead = 0;
-            cacheWrite = 0;
-          };
-        }
-      ];
-    };
+  # Pi AI agent
+  programs.pi.coding-agent = {
+    enable = true;
+    models = ./models.json;
   };
 
   # Import home modules
