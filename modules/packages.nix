@@ -24,5 +24,6 @@
     wl-clipboard
     rust-analyzer
     adwaita-icon-theme
+    beads
   ];
 }
