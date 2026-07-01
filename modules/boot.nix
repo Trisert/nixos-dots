@@ -10,7 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_zen;
 
-  system.boot.loader.kernelFile = "vmlinuz";
+  system.boot.loader.kernelFile = "bzImage";
 
   boot.kernel.sysctl = {
     "vm.swappiness" = 10;

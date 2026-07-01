@@ -87,12 +87,14 @@
                   llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
                     cmakeFlags = (old.cmakeFlags or [ ]) ++ [
                       "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_NCCL=ON"
                       "-DLLAMA_CURL=ON"
                       "-DLLAMA_SSL_SUPPORT=ON"
                       "-DLLAMA_BUILD_UI=OFF"
                       "-DLLAMA_BUILD_WEBUI=OFF"
                     ];
                     buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.cudaPackages.nccl
                       prev.curl
                       prev.openssl
                     ];
@@ -102,12 +104,14 @@
                   ik-llama-cpp.packages.${prev.stdenv.hostPlatform.system}.cuda.overrideAttrs (old: {
                     cmakeFlags = (old.cmakeFlags or [ ]) ++ [
                       "-DCMAKE_CUDA_ARCHITECTURES=60;75"
+                      "-DLLAMA_NCCL=ON"
                       "-DLLAMA_CURL=ON"
                       "-DLLAMA_SSL_SUPPORT=ON"
                       "-DLLAMA_BUILD_UI=OFF"
                       "-DLLAMA_BUILD_WEBUI=OFF"
                     ];
                     buildInputs = (old.buildInputs or [ ]) ++ [
+                      prev.cudaPackages.nccl
                       prev.curl
                       prev.openssl
                     ];
