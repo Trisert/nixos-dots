@@ -17,7 +17,6 @@
     ik-llama-cpp-cuda
     ripgrep
     discord
-    gemini-cli
     nodejs
     grim
     slurp
@@ -25,5 +24,6 @@
     rust-analyzer
     adwaita-icon-theme
     beads
+    antigravity
   ];
 }

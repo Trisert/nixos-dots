@@ -13,5 +13,6 @@
     statix # Nix linter
     codex
     devenv
+    python313Packages.huggingface-hub
   ];
 }
