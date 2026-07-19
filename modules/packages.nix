@@ -16,6 +16,7 @@
     llama-cpp-cuda
     ik-llama-cpp-cuda
     ripgrep
+    rclone
     discord
     nodejs
     grim
