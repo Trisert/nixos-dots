@@ -19,6 +19,7 @@
     rclone
     discord
     nodejs
+    onlyoffice-desktopeditors
     grim
     slurp
     wl-clipboard
