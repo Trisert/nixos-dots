@@ -14,5 +14,6 @@
     codex
     devenv
     python313Packages.huggingface-hub
+    prismlauncher
   ];
 }
