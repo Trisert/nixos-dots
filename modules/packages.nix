@@ -27,5 +27,6 @@
     adwaita-icon-theme
     beads
     antigravity
+    obsidian
   ];
 }
