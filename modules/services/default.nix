@@ -34,4 +34,11 @@
   services.upower.enable = true;
 
   services.tailscale.enable = true;
+
+  services.syncthing = {
+    enable = true;
+    openDefaultPorts = true;
+    user = "nicola";
+    dataDir = "/home/nicola/.local/share/syncthing";
+  };
 }

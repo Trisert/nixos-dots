@@ -28,6 +28,5 @@
     beads
     antigravity
     obsidian
-    syncthing
   ];
 }
