@@ -19,11 +19,11 @@
     set completion-ignore-case on
   '';
 
-  # Pi AI agent
-  programs.pi.coding-agent = {
-    enable = true;
-    models = ./models.json;
-  };
+  # Pi AI agent (disabled: npmDepsHash obsoleto upstream, riabilitare quando fixato)
+  # programs.pi.coding-agent = {
+  #   enable = true;
+  #   models = ./models.json;
+  # };
 
   # Import home modules
   imports = [

@@ -148,7 +148,7 @@
                   };
                 };
               sharedModules = [
-                pi.homeModules.default
+                # pi.homeModules.default # broken: npmDepsHash obsoleto upstream
               ];
             };
           }

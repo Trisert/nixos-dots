@@ -26,7 +26,6 @@
     rust-analyzer
     adwaita-icon-theme
     beads
-    antigravity
     obsidian
   ];
 }
